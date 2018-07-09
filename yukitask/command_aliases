@@ -1,12 +1,14 @@
 # vim: set filetype=sh:
-if test "$EDITOR" = "" ; then
-  echo "YukiTask: Warning: 'EDITOR' is not set."
+YUKITASK_EDITOR=${YUKITASK_EDITOR-$EDITOR}
+echo YUKITASK_EDITOR: "$YUKITASK_EDITOR"
+if test "$YUKITASK_EDITOR" = "" ; then
+  echo "YukiTask: Warning: 'YUKITASK_EDITOR' or 'EDITOR' is not set."
 fi
 alias mk='touch_task; make'
 alias bk='make bk'
 alias e='make e'
 alias show='make show'
 alias main='make main'
-alias m='$EDITOR makefile'
-alias T='$EDITOR TODO'
-alias TT='$EDITOR ~/yukitask/TODO'
+alias m='$YUKITASK_EDITOR makefile'
+alias T='$YUKITASK_EDITOR TODO'
+alias TT='$YUKITASK_EDITOR ~/yukitask/TODO'
